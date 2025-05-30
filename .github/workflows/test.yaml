@@ -1,10 +1,10 @@
-name: CI - Build & Push Container Image
+name: CI
 
 on:
   workflow_dispatch:
     inputs:
       promote:
-        description: 'Promote image to production'
+        description: 'Promote image to production?'
         required: false
         default: 'false'
   push:
@@ -25,7 +25,7 @@ jobs:
 
   promote:
     name: Promote
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.event.inputs.promote == 'true'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' && github.event.inputs.promote == 'false'
     runs-on:
       - ubuntu-latest
     steps:
