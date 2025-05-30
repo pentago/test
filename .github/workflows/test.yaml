@@ -1,10 +1,10 @@
-name: CI - Build & Push Container Image
+name: CI
 
 on:
   workflow_dispatch:
     inputs:
       promote:
-        description: 'Promote image to production'
+        description: 'Promote image to production?'
         required: false
         default: 'false'
   push:
