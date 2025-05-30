@@ -1,0 +1,17 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "staging"
+
+jobs:
+  build:
+    name: Build
+    if: github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test
+        run: echo "Staging went off!"
